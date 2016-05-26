@@ -4,7 +4,6 @@ Text:  Welcome to cipher day!
 write a program that can encrypt texts with an alphabetical caesar cipher. This cipher can ignore numbers, symbols, and whitespace.
 
 for extra credit, add a "decrypt" function to your program!"""
-from string import lowercase
 
 text = """As I remember, Adam, it was upon this fashion
 bequeathed me by will but poor a thousand crowns,
@@ -35,12 +34,13 @@ know no wise remedy how to avoid it."""
 def encrypt(sample):
     encryptedText = ''
     for character in sample:
-        if not character.isalpha():
-            encryptedText += character
-            
-        else:
+        if character.isalpha():    
             charactercode = ord(character) + 2
             encryptedText += chr(charactercode)
+            
+        else:
+            encryptedText += character
+            
     return encryptedText
 
 print encrypt(text)
